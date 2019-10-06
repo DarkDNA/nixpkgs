@@ -71,6 +71,7 @@ in
       if system == "x86_64-darwin" then ''
         mkdir -p "$out/Applications/${longName}.app" $out/bin
         cp -r ./* "$out/Applications/${longName}.app"
+        # For some reason the vscodium macOS zip doesn't rename the helper to codium.
         ln -s "$out/Applications/${longName}.app/Contents/Resources/app/bin/code" $out/bin/${executableName}
       '' else ''
         mkdir -p $out/lib/vscode $out/bin
